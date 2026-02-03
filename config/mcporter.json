@@ -1,0 +1,10 @@
+{
+  "mcpServers": {
+    "playwright": {
+      "command": "playwright-mcp",
+      "args": ["--no-sandbox"],
+      "description": "Official Playwright MCP server for browser automation"
+    }
+  },
+  "imports": []
+}

@@ -16,12 +16,11 @@ const { chromium } = require('playwright');
 (async () => {
   console.log("正在启动Chrome（新实例）...");
   
-  const browser = await chromium.launch({
+  const context = await chromium.launchPersistentContext('/tmp/chrome-profile-twitter', {
     headless: false,
-    args: ['--disable-dev-shm-usage', '--no-sandbox', `--user-data-dir=/tmp/chrome-profile-$(date +%s)`]
+    args: ['--disable-dev-shm-usage', '--no-sandbox']
   });
   
-  const context = await browser.newContext();
   const page = await context.newPage();
   
   console.log("正在访问Twitter时间线...");
@@ -261,7 +260,7 @@ const { chromium } = require('playwright');
   console.log("- 发送 'twitter scan' 可以立即重新扫描");
   console.log("- 发送 'send report' 可以立即发送当前数据");
   
-  await browser.close();
+  await context.close();
 })();
 NODESCRIPT
 
