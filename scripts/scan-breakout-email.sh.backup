@@ -1,5 +1,5 @@
 #!/bin/bash
-# 4小时K线突破检测 - 邮件通知版 (简化版)
+# 4小时K线突破检测 - 邮件通知版
 
 cd /root/clawd
 
@@ -56,7 +56,6 @@ breakdown_details=""
 for coin_id in "${!COIN_MAP[@]}"; do
   symbol="${COIN_MAP[$coin_id]}"
 
-  # 获取K线数据
   response=$(curl -s "https://min-api.cryptocompare.com/data/v2/histohour?fsym=${symbol}&tsym=USD&limit=${DATA_LIMIT}")
 
   if ! echo "$response" | jq -e '.Data.Data' > /dev/null 2>&1; then
@@ -113,7 +112,6 @@ for coin_id in "${!COIN_MAP[@]}"; do
   range_high=0
   range_low=999999999
 
-  # 计算前29根K线的震荡区间
   for ((i = candle_count - LOOKBACK_CANDLES - 1; i < candle_count - 1; i++)); do
     IFS='|' read -r t_open t_high t_low t_close t_timestamp <<< "${candles[$i]}"
 
@@ -128,7 +126,6 @@ for coin_id in "${!COIN_MAP[@]}"; do
     fi
   done
 
-  # 最后一根4小时K线（用于突破检测）
   last_candle="${candles[$((candle_count - 1))]}"
   IFS='|' read -r t_open t_high t_low t_close t_timestamp <<< "$last_candle"
 
@@ -141,17 +138,11 @@ for coin_id in "${!COIN_MAP[@]}"; do
     breakout_down=$(awk -v low="$range_low" -v threshold="$BREAKOUT_THRESHOLD" 'BEGIN {printf "%.2f", low * (1 - threshold)}')
 
     breakout_up_check=$(awk -v last_close="$t_close" -v breakout="$breakout_up" 'BEGIN {if (last_close > breakout) print 1; else print 0}')
-
     if [ "$breakout_up_check" = "1" ]; then
       change=$(awk -v last_close="$t_close" -v high="$range_high" 'BEGIN {printf "%.2f", (last_close - high) / high * 100}')
-
-      # 转换时间戳为可读格式
-      kline_time=$(date -d @$t_timestamp "+%Y-%m-%d %H:%M:%S")
-
       breakup_coins="${breakup_coins}${coin_id}(${symbol}), "
       breakup_details="${breakup_details}${coin_id} (${symbol})
-  突破K线时间: ${kline_time}
-  4小时收盘价: \$${t_close}
+  收盘价: \$${t_close}
   突破区间: \$${range_low} - \$${range_high}
   区间宽度: ${range_width}%
   突破幅度: +${change}%
@@ -160,17 +151,11 @@ for coin_id in "${!COIN_MAP[@]}"; do
     fi
 
     breakout_down_check=$(awk -v last_close="$t_close" -v breakout="$breakout_down" 'BEGIN {if (last_close < breakout) print 1; else print 0}')
-
     if [ "$breakout_down_check" = "1" ]; then
       change=$(awk -v last_close="$t_close" -v low="$range_low" 'BEGIN {printf "%.2f", (low - last_close) / low * 100}')
-
-      # 转换时间戳为可读格式
-      kline_time=$(date -d @$t_timestamp "+%Y-%m-%d %H:%M:%S")
-
       breakdown_coins="${breakdown_coins}${coin_id}(${symbol}), "
       breakdown_details="${breakdown_details}${coin_id} (${symbol})
-  突破K线时间: ${kline_time}
-  4小时收盘价: \$${t_close}
+  收盘价: \$${t_close}
   突破区间: \$${range_low} - \$${range_high}
   区间宽度: ${range_width}%
   突破幅度: -${change}%
