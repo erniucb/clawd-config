@@ -1,5 +1,5 @@
 #!/bin/bash
-# 4小时K线突破检测 - 邮件通知版 (简化版)
+# 4小时K线突破检测 - 邮件通知版 (改进版，带进度输出)
 
 cd /root/clawd
 
@@ -53,13 +53,22 @@ breakdown_coins=""
 breakup_details=""
 breakdown_details=""
 
+coin_count=0
+total_coins=${#COIN_MAP[@]}
+echo "开始扫描 ${total_coins} 个币种..."
+echo "扫描时间: $(date '+%Y/%m/%d %H:%M:%S')"
+
 for coin_id in "${!COIN_MAP[@]}"; do
   symbol="${COIN_MAP[$coin_id]}"
+  coin_count=$((coin_count + 1))
+
+  echo "[$coin_count/$total_coins] 正在处理 ${coin_id} (${symbol})..."
 
   # 获取K线数据
   response=$(curl -s "https://min-api.cryptocompare.com/data/v2/histohour?fsym=${symbol}&tsym=USD&limit=${DATA_LIMIT}")
 
   if ! echo "$response" | jq -e '.Data.Data' > /dev/null 2>&1; then
+    echo "  API调用失败，跳过"
     continue
   fi
 
@@ -107,6 +116,7 @@ for coin_id in "${!COIN_MAP[@]}"; do
   candle_count=${#candles[@]}
 
   if [ $candle_count -lt $((LOOKBACK_CANDLES + 1)) ]; then
+    echo "  K线数量不足 (${candle_count} < $((LOOKBACK_CANDLES + 1)))，跳过"
     continue
   fi
 
@@ -157,6 +167,7 @@ for coin_id in "${!COIN_MAP[@]}"; do
   突破幅度: +${change}%
 
 "
+      echo "  ✅ 检测到向上突破！(${change}%)"
     fi
 
     breakout_down_check=$(awk -v last_close="$t_close" -v breakout="$breakout_down" 'BEGIN {if (last_close < breakout) print 1; else print 0}')
@@ -176,10 +187,16 @@ for coin_id in "${!COIN_MAP[@]}"; do
   突破幅度: -${change}%
 
 "
+      echo "  ⚠️ 检测到向下突破！(-${change}%)"
     fi
+  else
+    echo "  区间震荡过宽 (${range_width}% > ${RANGE_THRESHOLD}%), 跳过"
   fi
 
 done
+
+echo ""
+echo "扫描完成！时间: $(date '+%Y/%m/%d %H:%M:%S')"
 
 # 如果有突破，发送邮件
 if [ -n "$breakup_coins" ] || [ -n "$breakdown_coins" ]; then
