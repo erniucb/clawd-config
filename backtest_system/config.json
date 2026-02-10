@@ -1,0 +1,26 @@
+{
+  "simulations": 100,
+  "years": 1,
+  "initial_capital": 10000,
+
+  "data": {
+    "start_price": 100000,
+    "volatility": 0.02,
+    "drift": 0.0001
+  },
+
+  "strategy": {
+    "lookback_bars": 60,
+    "pivot_lookback": 10,
+    "consolidation": {
+      "min_bars": 2,
+      "max_bars": 3,
+      "max_range_percent": 0.01
+    }
+  },
+
+  "risk": {
+    "risk_percent": 0.02,
+    "max_risk_positions": 3
+  }
+}
