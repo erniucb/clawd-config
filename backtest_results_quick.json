@@ -1,0 +1,232 @@
+{
+  "statistics": {
+    "n_simulations": 10,
+    "avg_return": -0.0007101962464405734,
+    "std_return": 0.008268454657675239,
+    "median_return": 0.0,
+    "best_return": 0.012184996717022658,
+    "worst_return": -0.021637551612398238,
+    "return_ci_lower": -0.006625092387660011,
+    "return_ci_upper": 0.005204699894778864,
+    "return_p5": -0.01190065338681903,
+    "return_p25": 0.0,
+    "return_p75": 0.0003701938672275901,
+    "return_p95": 0.007537398467962328,
+    "avg_drawdown": 0.0036022768421130223,
+    "max_drawdown_worst": 0.021637551612398238,
+    "drawdown_ci_lower": -0.0016600128701917813,
+    "drawdown_ci_upper": 0.008864566554417825,
+    "avg_trades": 0.4,
+    "avg_win_rate": 0.75,
+    "avg_profit_factor": 0,
+    "sharpe_ratio": -2.504723930150142
+  },
+  "individual_results": [
+    {
+      "initial_capital": 10000,
+      "final_capital": 10000,
+      "total_return": 0.0,
+      "max_drawdown": 0.0,
+      "total_trades": 0,
+      "winning_trades": 0,
+      "win_rate": 0,
+      "avg_win": 0,
+      "avg_loss": 0,
+      "profit_factor": 0,
+      "trades": [],
+      "equity_curve": [
+        10000,
+        10000
+      ]
+    },
+    {
+      "initial_capital": 10000,
+      "final_capital": 10000,
+      "total_return": 0.0,
+      "max_drawdown": 0.0,
+      "total_trades": 0,
+      "winning_trades": 0,
+      "win_rate": 0,
+      "avg_win": 0,
+      "avg_loss": 0,
+      "profit_factor": 0,
+      "trades": [],
+      "equity_curve": [
+        10000,
+        10000
+      ]
+    },
+    {
+      "initial_capital": 10000,
+      "final_capital": 10000,
+      "total_return": 0.0,
+      "max_drawdown": 0.0,
+      "total_trades": 0,
+      "winning_trades": 0,
+      "win_rate": 0,
+      "avg_win": 0,
+      "avg_loss": 0,
+      "profit_factor": 0,
+      "trades": [],
+      "equity_curve": [
+        10000,
+        10000
+      ]
+    },
+    {
+      "initial_capital": 10000,
+      "final_capital": 10121.849967170227,
+      "total_return": 0.012184996717022658,
+      "max_drawdown": 0.012038309949805774,
+      "total_trades": 1,
+      "winning_trades": 0.0,
+      "win_rate": 1.0,
+      "avg_win": 121.84996717022591,
+      "avg_loss": 0,
+      "profit_factor": 0,
+      "trades": [
+        {
+          "entry_price": 142573.79394584405,
+          "exit_price": 172175.7377375693,
+          "size": 0.0041162826342602266,
+          "pnl": 121.84996717022591,
+          "exit_type": "take_profit"
+        }
+      ],
+      "equity_curve": [
+        10000,
+        10121.849967170227,
+        10121.849967170227
+      ]
+    },
+    {
+      "initial_capital": 10000,
+      "final_capital": 9783.624483876018,
+      "total_return": -0.021637551612398238,
+      "max_drawdown": 0.021637551612398238,
+      "total_trades": 1,
+      "winning_trades": 1.0,
+      "win_rate": 0.0,
+      "avg_win": 0,
+      "avg_loss": -216.3755161239816,
+      "profit_factor": 0.0,
+      "trades": [
+        {
+          "entry_price": 135796.0386662499,
+          "exit_price": 125845.58865939607,
+          "size": 0.021745299556798263,
+          "pnl": -216.3755161239816,
+          "exit_type": "stop_loss"
+        }
+      ],
+      "equity_curve": [
+        10000,
+        9783.624483876018,
+        9783.624483876018
+      ]
+    },
+    {
+      "initial_capital": 10000,
+      "final_capital": 10004.935918229701,
+      "total_return": 0.0004935918229701201,
+      "max_drawdown": 0.0004933483102782906,
+      "total_trades": 1,
+      "winning_trades": 0.0,
+      "win_rate": 1.0,
+      "avg_win": 4.935918229700372,
+      "avg_loss": 0,
+      "profit_factor": 0,
+      "trades": [
+        {
+          "entry_price": 102100.77745153036,
+          "exit_price": 102580.75899615178,
+          "size": 0.010283558368048345,
+          "pnl": 4.935918229700372,
+          "exit_type": "take_profit"
+        }
+      ],
+      "equity_curve": [
+        10000,
+        10004.935918229701,
+        10004.935918229701
+      ]
+    },
+    {
+      "initial_capital": 10000,
+      "final_capital": 10018.570006079997,
+      "total_return": 0.0018570006079997256,
+      "max_drawdown": 0.0018535585486479233,
+      "total_trades": 1,
+      "winning_trades": 0.0,
+      "win_rate": 1.0,
+      "avg_win": 18.570006079997093,
+      "avg_loss": 0,
+      "profit_factor": 0,
+      "trades": [
+        {
+          "entry_price": 183092.17713032305,
+          "exit_price": 190794.3313149172,
+          "size": 0.0024110145856520047,
+          "pnl": 18.570006079997093,
+          "exit_type": "take_profit"
+        }
+      ],
+      "equity_curve": [
+        10000,
+        10018.570006079997,
+        10018.570006079997
+      ]
+    },
+    {
+      "initial_capital": 10000,
+      "final_capital": 10000,
+      "total_return": 0.0,
+      "max_drawdown": 0.0,
+      "total_trades": 0,
+      "winning_trades": 0,
+      "win_rate": 0,
+      "avg_win": 0,
+      "avg_loss": 0,
+      "profit_factor": 0,
+      "trades": [],
+      "equity_curve": [
+        10000,
+        10000
+      ]
+    },
+    {
+      "initial_capital": 10000,
+      "final_capital": 10000,
+      "total_return": 0.0,
+      "max_drawdown": 0.0,
+      "total_trades": 0,
+      "winning_trades": 0,
+      "win_rate": 0,
+      "avg_win": 0,
+      "avg_loss": 0,
+      "profit_factor": 0,
+      "trades": [],
+      "equity_curve": [
+        10000,
+        10000
+      ]
+    },
+    {
+      "initial_capital": 10000,
+      "final_capital": 10000,
+      "total_return": 0.0,
+      "max_drawdown": 0.0,
+      "total_trades": 0,
+      "winning_trades": 0,
+      "win_rate": 0,
+      "avg_win": 0,
+      "avg_loss": 0,
+      "profit_factor": 0,
+      "trades": [],
+      "equity_curve": [
+        10000,
+        10000
+      ]
+    }
+  ]
+}

@@ -1,6 +1,6 @@
 {
-  "simulations": 100,
-  "years": 1,
+  "simulations": 3,
+  "years": 0.2,
   "initial_capital": 10000,
 
   "data": {
