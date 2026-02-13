@@ -1,0 +1,58 @@
+{
+  "email": {
+    "sender": "371398370@qq.com",
+    "password": "hjqibancxrerbifb",
+    "receiver": "371398370@qq.com",
+    "smtp_server": "smtp.qq.com",
+    "smtp_port": 587
+  },
+  "scanning": {
+    "min_history": 90,
+    "max_amplitude": 0.10,
+    "squeeze_factor": 0.75,
+    "min_volume_usdt": 5000000,
+    "radar_interval_seconds": 3600,
+    "sniper_interval_seconds": 60,
+    "watchlist_expiry_hours": 4,
+    "alert_cooldown_hours": 1
+  },
+  "database": {
+    "path": "/root/clawd/scripts/hunter_data.db",
+    "log_path": "/root/clawd/scripts/hunter_run.log"
+  },
+  "concurrency": {
+    "max_concurrent_requests": 10,
+    "max_concurrent_analysis": 20
+  },
+  "exchanges": {
+    "binance": {
+      "enableRateLimit": true,
+      "options": {"defaultType": "future"},
+      "timeout": 30000
+    },
+    "bybit": {
+      "enableRateLimit": true,
+      "options": {"defaultType": "linear"},
+      "timeout": 30000
+    },
+    "bitget": {
+      "enableRateLimit": true,
+      "options": {"defaultType": "swap"},
+      "timeout": 30000
+    },
+    "bingx": {
+      "enableRateLimit": true,
+      "options": {"defaultType": "swap"},
+      "timeout": 30000
+    },
+    "msx": {
+      "enableRateLimit": true,
+      "options": {"defaultType": "swap"},
+      "timeout": 30000
+    }
+  },
+  "logging": {
+    "level": "INFO",
+    "format": "%(asctime)s [%(levelname)s] %(message)s"
+  }
+}
