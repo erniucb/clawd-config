@@ -1,0 +1,20 @@
+2026-02-13 04:46:07,724 [INFO] ✅ 数据库初始化成功
+2026-02-13 04:46:07,725 [INFO] 🔌 初始化交易所...
+2026-02-13 04:46:07,735 [INFO] ✅ OKX 就绪
+2026-02-13 04:46:07,747 [INFO] ✅ BITGET 就绪
+2026-02-13 04:46:07,754 [INFO] ✅ MEXC 就绪
+2026-02-13 04:46:07,764 [INFO] ✅ GATE 就绪
+2026-02-13 04:46:07,765 [INFO] 🔄 数据库恢复: 45 个盯盘任务, 0 个待确认任务.
+2026-02-13 04:46:07,766 [INFO] 📡 拉取全市场实时行情...
+2026-02-13 04:46:15,452 [INFO] 🔍 扫描 332 个标的...
+2026-02-13 04:46:15,945 [ERROR] 狙击任务异常 [ROSE/USDT:USDT]: mexc {"success":false,"code":510,"message":"Requests are too frequent, please try again later"}
+2026-02-13 04:46:16,071 [ERROR] 狙击任务异常 [INJ/USDT:USDT]: mexc {"success":false,"code":510,"message":"Requests are too frequent, please try again later"}
+2026-02-13 04:46:16,165 [ERROR] 狙击任务异常 [ATOM/USDT:USDT]: mexc {"success":false,"code":510,"message":"Requests are too frequent, please try again later"}
+2026-02-13 04:46:16,251 [ERROR] 狙击任务异常 [TONCOIN/USDT:USDT]: mexc {"success":false,"code":510,"message":"Requests are too frequent, please try again later"}
+2026-02-13 04:46:16,359 [ERROR] 狙击任务异常 [KAS/USDT:USDT]: mexc {"success":false,"code":510,"message":"Requests are too frequent, please try again later"}
+2026-02-13 04:46:16,445 [ERROR] 狙击任务异常 [FILECOIN/USDT:USDT]: mexc {"success":false,"code":510,"message":"Requests are too frequent, please try again later"}
+2026-02-13 04:46:16,647 [ERROR] 狙击任务异常 [1000BONK/USDT:USDT]: mexc {"success":false,"code":510,"message":"Requests are too frequent, please try again later"}
+2026-02-13 04:46:16,759 [ERROR] 狙击任务异常 [ETC/USDT:USDT]: mexc {"success":false,"code":510,"message":"Requests are too frequent, please try again later"}
+2026-02-13 04:46:16,864 [ERROR] 狙击任务异常 [VET/USDT:USDT]: mexc {"success":false,"code":510,"message":"Requests are too frequent, please try again later"}
+2026-02-13 04:46:17,555 [ERROR] 狙击任务异常 [AUD/USDT:USDT]: mexc {"success":false,"code":510,"message":"Requests are too frequent, please try again later"}
+2026-02-13 04:46:27,186 [ERROR] TIA/USDT:USDT check_structure异常: mexc {"success":false,"code":510,"message":"Requests are too frequent, please try again later"}

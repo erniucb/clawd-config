@@ -1,0 +1,22 @@
+2026-02-13 04:42:13,857 [INFO] 🔌 初始化交易所...
+2026-02-13 04:42:13,868 [INFO] ✅ OKX 就绪
+2026-02-13 04:42:13,881 [INFO] ✅ BITGET 就绪
+2026-02-13 04:42:13,889 [INFO] ✅ MEXC 就绪
+2026-02-13 04:42:13,898 [INFO] ✅ GATE 就绪
+2026-02-13 04:42:13,899 [INFO] 🔄 数据库恢复: 0 个盯盘任务, 0 个待确认任务.
+2026-02-13 04:42:13,899 [INFO] 📡 拉取全市场实时行情...
+2026-02-13 04:42:21,801 [INFO] 🔍 扫描 332 个标的...
+2026-02-13 04:42:46,388 [INFO] 🤫 雷达静默锁定 45 个新目标 (已入库，等待狙击)
+2026-02-13 04:43:15,146 [ERROR] 狙击任务异常 [INJ/USDT:USDT]: mexc {"success":false,"code":510,"message":"Requests are too frequent, please try again later"}
+2026-02-13 04:43:15,234 [ERROR] 狙击任务异常 [ATOM/USDT:USDT]: mexc {"success":false,"code":510,"message":"Requests are too frequent, please try again later"}
+2026-02-13 04:43:15,349 [ERROR] 狙击任务异常 [TONCOIN/USDT:USDT]: mexc {"success":false,"code":510,"message":"Requests are too frequent, please try again later"}
+2026-02-13 04:43:15,443 [ERROR] 狙击任务异常 [KAS/USDT:USDT]: mexc {"success":false,"code":510,"message":"Requests are too frequent, please try again later"}
+2026-02-13 04:43:15,558 [ERROR] 狙击任务异常 [FILECOIN/USDT:USDT]: mexc {"success":false,"code":510,"message":"Requests are too frequent, please try again later"}
+2026-02-13 04:43:15,633 [ERROR] 狙击任务异常 [FLOKI/USDT:USDT]: mexc {"success":false,"code":510,"message":"Requests are too frequent, please try again later"}
+2026-02-13 04:43:15,757 [ERROR] 狙击任务异常 [1000BONK/USDT:USDT]: mexc {"success":false,"code":510,"message":"Requests are too frequent, please try again later"}
+2026-02-13 04:43:15,836 [ERROR] 狙击任务异常 [ETC/USDT:USDT]: mexc {"success":false,"code":510,"message":"Requests are too frequent, please try again later"}
+2026-02-13 04:43:15,962 [ERROR] 狙击任务异常 [VET/USDT:USDT]: mexc {"success":false,"code":510,"message":"Requests are too frequent, please try again later"}
+2026-02-13 04:43:16,049 [ERROR] 狙击任务异常 [CAKE/USDT:USDT]: mexc {"success":false,"code":510,"message":"Requests are too frequent, please try again later"}
+2026-02-13 04:43:16,165 [ERROR] 狙击任务异常 [GOOGLSTOCK/USDT:USDT]: mexc {"success":false,"code":510,"message":"Requests are too frequent, please try again later"}
+2026-02-13 04:43:16,243 [ERROR] 狙击任务异常 [AMZNSTOCK/USDT:USDT]: mexc {"success":false,"code":510,"message":"Requests are too frequent, please try again later"}
+2026-02-13 04:43:16,512 [ERROR] 狙击任务异常 [HMSTR/USDT:USDT]: mexc {"success":false,"code":510,"message":"Requests are too frequent, please try again later"}
