@@ -1,0 +1,20 @@
+{
+  "jobs": [
+    {
+      "name": "xiaohongshu-daily-search",
+      "schedule": "0 9 * * *",
+      "timezone": "Asia/Shanghai",
+      "command": "python3 /root/clawd/scripts/xhs-automation.py",
+      "description": "每天上午9点（东八区）搜索小红书热门内容",
+      "enabled": true
+    },
+    {
+      "name": "xiaohongshu-evening-search",
+      "schedule": "0 18 * * *",
+      "timezone": "Asia/Shanghai",
+      "command": "python3 /root/clawd/scripts/xhs-automation.py",
+      "description": "每天下午6点（东八区）搜索小红书热门内容",
+      "enabled": true
+    }
+  ]
+}

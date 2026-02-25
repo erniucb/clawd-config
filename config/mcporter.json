@@ -1,9 +1,17 @@
 {
   "mcpServers": {
     "playwright": {
+      "description": "Official Playwright MCP server for browser automation",
       "command": "playwright-mcp",
-      "args": ["--no-sandbox"],
-      "description": "Official Playwright MCP server for browser automation"
+      "args": [
+        "--no-sandbox"
+      ]
+    },
+    "exa": {
+      "baseUrl": "https://mcp.exa.ai/mcp"
+    },
+    "xiaohongshu": {
+      "baseUrl": "http://localhost:18060"
     }
   },
   "imports": []
