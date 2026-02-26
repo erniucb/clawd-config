@@ -42,13 +42,26 @@ Add whatever helps you do your job. This is your cheat sheet.
 - **转换公式**: UTC时间 + 8小时 = 东八区时间
 - **示例**: UTC 04:36 = 东八区 12:36
 
-### 🔄 V26 Scanner 脚本
-- **当前版本**: V26（爸爸会频繁更新，注意检查最新版本）
-- **脚本路径**: `/root/clawd/scripts/v26-scanner.py`
-- **日志路径**: `/root/clawd/scripts/v26_run.log`
-- **数据库**: `/root/clawd/scripts/v26_data.db`
+### 🔄 V29 Wyckoff Ultimate 脚本
+- **当前版本**: V29 Wyckoff Ultimate（爸爸会频繁更新，注意检查最新版本）
+- **脚本路径**: `/root/clawd/scripts/v29_wyckoff_ultimate.py`
+- **日志路径**: `/root/clawd/scripts/v29_engine.log`
+- **数据库**: `/root/clawd/scripts/v29_wyckoff_ultimate.db`
 - **运行状态**: 7x24小时不间断
 - **重要**: 不要随意重启，爸爸会频繁更新版本
+
+### 🌐 Agent Reach（网络访问工具）
+- **安装状态**: ✅ 已安装（2026-02-25）
+- **不要重复安装！**
+- **常用命令**:
+  - `agent-reach doctor` - 检查状态
+  - `agent-reach read <url>` - 读取推文/网页
+  - `agent-reach search "query"` - 搜索网页
+- **状态**: 6/9 渠道可用（Twitter读取正常）
+
+### 🦀 OpenClaw 版本
+- **当前版本**: 2026.2.24
+- **每周运行**: `openclaw update` 更新
 
 ### 📧 邮箱配置
 - **突破通知邮箱**: 371398370@qq.com

@@ -27,15 +27,15 @@
 3. 检测24小时震荡区间突破（42%阈值）
 4. 发送邮件到 371398370@qq.com
 
-### V26 Scanner（当前运行版本）⚠️ **重要**
-**重要: 爸爸会经常更新脚本版本！当前是 V26，7x24小时不间断运行**
+### V29 Wyckoff Ultimate（当前运行版本）⚠️ **重要**
+**重要: Boss 会经常更新脚本版本！当前是 V29，7x24小时不间断运行**
 
 **脚本信息:**
-- 名称: v26-scanner.py
-- 路径: /root/clawd/scripts/v26-scanner.py
-- 作用: 多交易所K线突破扫描
-- 日志: /root/clawd/scripts/v26_run.log
-- 数据库: /root/clawd/scripts/v26_data.db
+- 名称: v29_wyckoff_ultimate.py
+- 路径: /root/clawd/scripts/v29_wyckoff_ultimate.py
+- 作用: 威科夫形态终极版扫描器
+- 日志: /root/clawd/scripts/v29_engine.log
+- 数据库: /root/clawd/scripts/v29_wyckoff_ultimate.db
 
 **功能特点:**
 - 多交易所并发: OKX, BITGET, MEXC, GATE, HYPERLIQUID
@@ -45,11 +45,31 @@
 - 邮件通知到: 371398370@qq.com
 
 **重要提醒:**
-- ⚠️ 爸爸会经常更新版本，每次对话前检查最新版本号
+- ⚠️ Boss 会经常更新版本，每次对话前检查最新版本号
 - 7x24小时持续运行，不要随意重启
 - 新对话或reset都不应忘记此脚本的存在
 - 修改配置前先停止脚本，修改后重新启动
-- 查看日志: `tail -f /root/clawd/scripts/v26_run.log`
+- 查看日志: `tail -f /root/clawd/scripts/v29_engine.log`
+
+### Memory Review（记忆审查）
+当收到 "memory review" 系统事件时：
+1. 运行 `python3 /root/clawd/scripts/memory_manager.py review`
+2. 检查短期记忆，晋升重要条目到长期记忆
+3. 归档过期记忆文件
+4. 向 boss 报告审查结果
+
+### 小龙虾1号 - 每日选题扫描 🦞
+当收到 "xiaolongxia research" 系统事件时：
+1. 运行研究Agent扫描热点：
+   ```bash
+   cd /root/clawd/projects/xiaolongxia-ai
+   python3 research_agent.py
+   ```
+2. 读取生成的选题：`/root/clawd/projects/xiaolongxia-ai/data/hot_topics.json`
+3. 向boss推送今日选题（格式化输出）
+
+**定时配置（可选）**：
+- 每天9:00自动运行（通过cron触发）
 
 # Keep this file empty (or with only comments) to skip heartbeat API calls.
 # Add tasks below if you want to check this periodically.

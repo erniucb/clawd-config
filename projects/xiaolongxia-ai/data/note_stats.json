@@ -1,0 +1,20 @@
+{
+  "created_at": "2026-02-25T10:00:00",
+  "notes": [],
+  "summary": {
+    "total_notes": 0,
+    "total_views": 0,
+    "total_likes": 0,
+    "total_comments": 0,
+    "avg_views": 0,
+    "explosion_rate": 0
+  },
+  "insights": {
+    "best_topic_type": "AI相关",
+    "best_style": "story",
+    "best_publish_time": "09:00-10:00",
+    "recommendations": [
+      "数据不足，发布更多笔记后再分析"
+    ]
+  }
+}

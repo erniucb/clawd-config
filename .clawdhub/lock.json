@@ -12,6 +12,10 @@
     "moltrade": {
       "version": "1.0.7",
       "installedAt": 1770745142721
+    },
+    "playwright-mcp": {
+      "version": "1.0.0",
+      "installedAt": 1772005955407
     }
   }
 }
