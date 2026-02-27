@@ -71,5 +71,15 @@
 **定时配置（可选）**：
 - 每天9:00自动运行（通过cron触发）
 
+# 心跳检查任务
+
+## 每次心跳必查
+
+1. **检查今日待办**：`/root/clawd/memory/todo/YYYY-MM-DD.md`
+   - 如果有高优先级未完成事项，提醒boss
+
+2. **V29脚本状态**：确认运行正常
+
+---
+
 # Keep this file empty (or with only comments) to skip heartbeat API calls.
-# Add tasks below if you want to check this periodically.

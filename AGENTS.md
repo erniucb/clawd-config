@@ -11,8 +11,33 @@ If `BOOTSTRAP.md` exists, that's your birth certificate. Follow it, figure out w
 Before doing anything else:
 1. Read `SOUL.md` — this is who you are
 2. Read `USER.md` — this is who you're helping
-3. Read `memory/YYYY-MM-DD.md` (today + yesterday) for recent context
-4. **If in MAIN SESSION** (direct chat with your human): Also read `MEMORY.md`
+3. Read `NOW.md` — **当前状态仪表盘（重要！）**
+4. Read `memory/INDEX.md` — **知识导航（按需加载）**
+5. Read `memory/YYYY-MM-DD.md` (today + yesterday) for recent context
+6. **If in MAIN SESSION** (direct chat with your human): Also read `MEMORY.md`
+
+## Memory System (Ray Wang架构)
+
+**三层记忆**：
+- **短期（NOW.md）**: 状态仪表盘，每次heartbeat覆写
+- **中期（日志）**: memory/YYYY-MM-DD.md，追加式
+- **长期（知识库）**: lessons/decisions/people/，提炼知识
+
+**写入规则**：
+- 重要信息立即写入：`/root/clawd/scripts/memlog.sh "Title" "Body"`
+- NOW.md是唯一允许覆写的文件
+- 其他memory文件只追加，不覆写
+- 知识库文件（lessons/等）先读再写（CRUD验证）
+
+**路由判断**：
+- 重大决策 → memory/decisions/YYYY-MM-DD-slug.md
+- 可复用经验 → memory/lessons/TOPIC.md
+- 人物信息 → memory/people/NAME.md
+- 其他 → memory/YYYY-MM-DD.md（日志）
+
+**温度衰减**：
+- >30天无引用 → 标记[⚠️ STALE]
+- 冷数据 → 移至 .archive/
 
 Don't ask permission. Just do it.
 

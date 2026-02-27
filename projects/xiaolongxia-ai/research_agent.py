@@ -38,23 +38,48 @@ class ResearchAgent:
         ]
 
     async def scan_weibo_hot(self):
-        """扫描微博热搜"""
+        """扫描微博热搜（通过 agent-reach 读取今日热榜）"""
         print("📱 扫描微博热搜...")
 
-        # 使用今日热榜API
-        import aiohttp
+        import subprocess
+        import re
+
         try:
-            async with aiohttp.ClientSession() as session:
-                # 用我们已知可用的tophub
-                # 这里简化处理，返回示例数据
-                # 实际应该调用API
-                weibo_hot = [
-                    {"title": "腾讯元宝向用户道歉", "heat": 140000},
-                    {"title": "大疆反击美国禁令", "heat": 100000},
-                    {"title": "AI取代程序员", "heat": 80000},
-                    {"title": "ChatGPT新功能", "heat": 75000},
-                ]
-                return weibo_hot
+            # 用 agent-reach 读取今日热榜微博页面
+            result = subprocess.run(
+                ["agent-reach", "read", "https://tophub.today/n/KqndgxeLl9"],
+                capture_output=True,
+                text=True,
+                timeout=30
+            )
+
+            if result.returncode != 0:
+                print(f"  ⚠️ agent-reach 执行失败")
+                return []
+
+            # 解析输出，提取热搜条目
+            content = result.stdout
+            weibo_hot = []
+
+            # 匹配格式: 数字.[标题](链接)热度万
+            # 例如: 1.[手机 涨价](https://...)117万
+            pattern = r'(\d+)\.\[([^\]]+)\]\([^\)]+\)(\d+)万'
+            matches = re.findall(pattern, content)
+
+            for rank, title, heat_str in matches[:20]:  # 取前20条
+                # 清理标题中的特殊字符
+                title = title.strip()
+                heat = int(heat_str) * 10000 if '万' in content else int(heat_str)
+
+                weibo_hot.append({
+                    "title": title,
+                    "heat": heat,
+                    "source": "weibo"
+                })
+
+            print(f"  ✅ 获取到 {len(weibo_hot)} 条微博热搜")
+            return weibo_hot
+
         except Exception as e:
             print(f"  ⚠️ 微博热搜获取失败: {e}")
             return []
@@ -148,34 +173,58 @@ class ResearchAgent:
         return filtered
 
     def generate_angle(self, topic):
-        """生成小红书角度"""
+        """生成小红书角度（更贴合平台调性）"""
         title = topic.get("title", "")
-        angles = []
+        heat = topic.get("heat", 0)
 
         # AI相关角度
         if topic.get("ai_related"):
-            if "道歉" in title or "问题" in title:
-                angles.append(f"国产AI大模型翻车现场，AI也会犯错？")
+            if "道歉" in title or "问题" in title or "翻车" in title:
+                return "国产AI大模型翻车现场，AI也会犯错？"
             elif "新功能" in title or "发布" in title:
-                angles.append(f"AI新功能实测，真能提效？")
+                return "AI新功能实测，真能提效？"
             elif "取代" in title or "失业" in title:
-                angles.append(f"AI要取代程序员？别慌，先看看这个")
+                return "AI要取代程序员？别慌，先看看这个"
+            elif "赚钱" in title or "副业" in title:
+                return "AI赚钱指南：普通人如何抓住机会"
             else:
-                angles.append(f"AI视角看：{title}")
-        else:
-            # 非AI话题，找AI结合点
-            if "假" in title or "真假" in title:
-                angles.append(f"AI教你3秒辨别真假货")
-            elif "价格" in title or "贵" in title or "省钱" in title:
-                angles.append(f"AI帮你省钱攻略")
-            elif "旅游" in title or "出行" in title:
-                angles.append(f"AI规划完美旅行路线")
-            elif "穿搭" in title or "衣服" in title:
-                angles.append(f"AI穿搭建议，今天穿什么？")
-            else:
-                angles.append(f"AI帮你搞定：{title}")
+                return f"🔥 AI圈大事件：{title[:20]}..."
 
-        return angles[0] if angles else title
+        # 非AI话题，根据关键词生成小红书风格角度
+        # 价格/消费相关
+        if any(kw in title for kw in ["涨价", "价格", "贵", "便宜", "省钱"]):
+            return f"💰 省钱攻略：{title[:15]}，这样买最划算！"
+
+        # 科技/手机相关
+        if any(kw in title for kw in ["手机", "苹果", "华为", "小米", "科技", "机器人"]):
+            return f"📱 科技圈炸了！{title[:15]}..."
+
+        # 娱乐/明星相关
+        if any(kw in title for kw in ["明星", "演员", "歌手", "电影", "综艺", "恋爱", "结婚"]):
+            return f"🌟 吃瓜！{title[:15]}..."
+
+        # 社会热点
+        if any(kw in title for kw in ["日本", "美国", "韩国", "争议", "回应"]):
+            return f"🌏 热议：{title[:18]}..."
+
+        # 经济/财经
+        if any(kw in title for kw in ["经济", "市场", "万亿", "投资", "股市"]):
+            return f"📈 财经热点：{title[:18]}..."
+
+        # 美妆/时尚
+        if any(kw in title for kw in ["穿搭", "化妆", "护肤", "衣服", "包包"]):
+            return f"💄 变美秘籍：{title[:15]}..."
+
+        # 健康/养生
+        if any(kw in title for kw in ["健康", "养生", "减肥", "瘦", "病"]):
+            return f"🏥 健康提醒：{title[:15]}..."
+
+        # 高热度话题通用模板
+        if heat > 500000:
+            return f"🔥 全网热议！{title[:18]}..."
+
+        # 默认模板
+        return f"💡 热点速递：{title[:20]}..."
 
     def generate_reason(self, topic):
         """生成爆款理由"""

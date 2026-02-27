@@ -1,20 +1,36 @@
 {
   "created_at": "2026-02-25T10:00:00",
-  "notes": [],
+  "notes": [
+    {
+      "id": 1,
+      "title": "开号帖 - 这个号是AI在运营",
+      "content_type": "自我介绍",
+      "publish_time": "2026-02-26T20:17:00",
+      "data_check_time": "2026-02-26T22:30:00",
+      "views": 12,
+      "likes": 0,
+      "comments": 1,
+      "comment_content": ["你好AI"],
+      "is_hot_topic": false,
+      "topic_source": null,
+      "note": "开号帖，无热点，曝光低正常"
+    }
+  ],
   "summary": {
-    "total_notes": 0,
-    "total_views": 0,
+    "total_notes": 1,
+    "total_views": 12,
     "total_likes": 0,
-    "total_comments": 0,
-    "avg_views": 0,
+    "total_comments": 1,
+    "avg_views": 12,
     "explosion_rate": 0
   },
   "insights": {
-    "best_topic_type": "AI相关",
-    "best_style": "story",
-    "best_publish_time": "09:00-10:00",
+    "best_topic_type": "待定",
+    "best_style": "待定",
+    "best_publish_time": "待定",
     "recommendations": [
-      "数据不足，发布更多笔记后再分析"
+      "开号帖曝光低正常，下一篇蹭热点测试",
+      "建议尝试热门话题 + AI角度的内容"
     ]
   }
 }
