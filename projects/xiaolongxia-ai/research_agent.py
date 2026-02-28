@@ -137,6 +137,210 @@ class ResearchAgent:
             print(f"  ⚠️ AI新闻获取失败: {e}")
             return []
 
+    async def scan_x_twitter(self):
+        """扫描X/Twitter上的AI热点（使用6551 opentwitter skill）"""
+        print("🐦 扫描X/Twitter热点...")
+
+        try:
+            import os
+            import requests
+
+            # 优先从环境变量读取，否则从config.json读取
+            twitter_token = os.getenv("TWITTER_TOKEN")
+            
+            if not twitter_token:
+                # 从opentwitter-mcp的config.json读取
+                config_path = "/opt/opentwitter-mcp/config.json"
+                if os.path.exists(config_path):
+                    import json
+                    with open(config_path, "r") as f:
+                        config = json.load(f)
+                        twitter_token = config.get("api_token", "")
+
+            if not twitter_token:
+                print(f"  ⚠️ TWITTER_TOKEN 未配置")
+                return []
+
+            # AI KOL账号列表（抓取他们的最新推文）
+            ai_kols = [
+                "elonmusk",  # 马斯克（经常提AI）
+                "sama",      # Sam Altman (OpenAI CEO)
+                "gdb",       # Greg Brockman (OpenAI)
+                "karpathy",  # Andrej Karpathy (AI科学家)
+            ]
+
+            all_tweets = []
+            headers = {
+                "Authorization": f"Bearer {twitter_token}",
+                "Content-Type": "application/json"
+            }
+
+            # 获取每个KOL的最新推文
+            for username in ai_kols[:2]:  # 只取2个避免太慢
+                url = "https://ai.6551.io/open/twitter_user_tweets"
+                payload = {
+                    "username": username,
+                    "maxResults": 5,
+                    "product": "Latest"
+                }
+
+                response = requests.post(url, headers=headers, json=payload, timeout=30)
+                
+                if response.status_code == 200:
+                    data = response.json()
+                    if data.get("success") and data.get("data"):
+                        for tweet in data["data"]:
+                            text = tweet.get("text", "")
+                            text = ' '.join(text.split()[:30])
+                            if text and len(text) > 10:
+                                heat = (tweet.get("favoriteCount", 0) or 0) + (tweet.get("retweetCount", 0) or 0)
+                                all_tweets.append({
+                                    "title": text,
+                                    "source": "twitter",
+                                    "heat": heat
+                                })
+
+            print(f"  ✅ 获取到 {len(all_tweets)} 条Twitter热点")
+            return all_tweets
+
+        except Exception as e:
+            print(f"  ⚠️ Twitter热点获取失败: {e}")
+            import traceback
+            traceback.print_exc()
+            return []
+
+    async def scan_zhihu_hot(self):
+        """扫描知乎热榜"""
+        print("📘 扫描知乎热榜...")
+
+        try:
+            import subprocess
+
+            # 用agent-reach读取知乎热榜
+            result = subprocess.run(
+                ["agent-reach", "read", "https://www.zhihu.com/api/v3/feed/topstory/hot-lists/total"],
+                capture_output=True,
+                text=True,
+                timeout=30
+            )
+
+            if result.returncode == 0:
+                import json
+                data = json.loads(result.stdout)
+                zhihu_hot = []
+
+                # 解析知乎热榜
+                if isinstance(data, dict) and "data" in data:
+                    for item in data["data"][:20]:
+                        target = item.get("target", {})
+                        title = target.get("title", "")
+                        if title:
+                            zhihu_hot.append({
+                                "title": title,
+                                "heat": item.get("detail_text", "").replace("热", "").replace("万", "0000"),
+                                "source": "zhihu"
+                            })
+
+                print(f"  ✅ 获取到 {len(zhihu_hot)} 条知乎热榜")
+                return zhihu_hot
+            else:
+                # 备用方案：读取知乎热榜页面
+                result = subprocess.run(
+                    ["agent-reach", "read", "https://www.zhihu.com/hot"],
+                    capture_output=True,
+                    text=True,
+                    timeout=30
+                )
+
+                if result.returncode == 0:
+                    import re
+                    content = result.stdout
+                    zhihu_hot = []
+
+                    # 匹配知乎热榜标题
+                    titles = re.findall(r'\d+\.\s+(.+?)(?:\n|\s{2,})', content)
+                    for i, title in enumerate(titles[:20]):
+                        title = title.strip()
+                        if title and len(title) > 2:
+                            zhihu_hot.append({
+                                "title": title,
+                                "source": "zhihu"
+                            })
+
+                    print(f"  ✅ 获取到 {len(zhihu_hot)} 条知乎热榜")
+                    return zhihu_hot
+
+            return []
+
+        except Exception as e:
+            print(f"  ⚠️ 知乎热榜获取失败: {e}")
+            return []
+
+    async def scan_36kr(self):
+        """扫描36氪热点"""
+        print("🚀 扫描36氪热点...")
+
+        try:
+            import subprocess
+
+            # 用agent-reach读取36氪热榜
+            result = subprocess.run(
+                ["agent-reach", "read", "https://36kr.com/hot-list/catalog"],
+                capture_output=True,
+                text=True,
+                timeout=30
+            )
+
+            if result.returncode == 0:
+                import re
+                content = result.stdout
+                kr36_hot = []
+
+                # 匹配36氪热榜标题
+                # 格式通常是：数字. 标题
+                lines = content.split('\n')
+                for line in lines[:50]:
+                    line = line.strip()
+                    # 匹配标题格式
+                    if re.match(r'^\d+\.', line):
+                        title = re.sub(r'^\d+\.\s*', '', line)
+                        title = title.strip()
+                        if title and len(title) > 5:
+                            kr36_hot.append({
+                                "title": title,
+                                "source": "36kr"
+                            })
+
+                print(f"  ✅ 获取到 {len(kr36_hot)} 条36氪热点")
+                return kr36_hot
+            else:
+                # 备用方案：用搜索
+                result = subprocess.run(
+                    ["agent-reach", "search", "36氪 科技 创业 最新"],
+                    capture_output=True,
+                    text=True,
+                    timeout=30
+                )
+
+                if result.returncode == 0:
+                    lines = result.stdout.strip().split("\n")
+                    kr36_hot = []
+                    for line in lines[:10]:
+                        if line.strip():
+                            kr36_hot.append({
+                                "title": line.strip(),
+                                "source": "36kr"
+                            })
+
+                    print(f"  ✅ 获取到 {len(kr36_hot)} 条36氪热点")
+                    return kr36_hot
+
+            return []
+
+        except Exception as e:
+            print(f"  ⚠️ 36氪热点获取失败: {e}")
+            return []
+
     def is_ai_related(self, title):
         """判断是否与AI相关"""
         title_upper = title.upper()
@@ -251,18 +455,29 @@ class ResearchAgent:
 
         all_topics = []
 
-        # 扫描各平台热点
-        weibo_topics = await self.scan_weibo_hot()
-        all_topics.extend(weibo_topics)
+        # 扫描各平台热点（暂时只启用验证可用的源）
+        # weibo_topics = await self.scan_weibo_hot()  # 暂时禁用（agent-reach太慢）
+        # all_topics.extend(weibo_topics)
 
-        xhs_topics = await self.scan_xiaohongshu_hot()
-        # 转换格式
-        for t in xhs_topics:
-            if isinstance(t, dict) and t.get("title"):
-                all_topics.append({"title": t["title"], "source": "xiaohongshu"})
+        # xhs_topics = await self.scan_xiaohongshu_hot()  # 暂时禁用
+        # for t in xhs_topics:
+        #     if isinstance(t, dict) and t.get("title"):
+        #         all_topics.append({"title": t["title"], "source": "xiaohongshu"})
 
         ai_news = await self.scan_ai_news()
         all_topics.extend(ai_news)
+
+        # 新增：扫描X/Twitter（已验证可用）
+        twitter_topics = await self.scan_x_twitter()
+        all_topics.extend(twitter_topics)
+
+        # 新增：扫描知乎热榜（暂时禁用，agent-reach太慢）
+        # zhihu_topics = await self.scan_zhihu_hot()
+        # all_topics.extend(zhihu_topics)
+
+        # 新增：扫描36氪（暂时禁用）
+        # kr36_topics = await self.scan_36kr()
+        # all_topics.extend(kr36_topics)
 
         print(f"\n📊 共收集 {len(all_topics)} 条热点")
 

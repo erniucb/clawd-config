@@ -59,6 +59,21 @@
 3. **Git 安全** - 不 force push，不删分支，不重写历史
 4. **配置谨慎** - 先读文档，先备份，再编辑
 
+## 6551 API 配置 🔑
+
+**Token位置**: `/root/.bashrc` 环境变量
+- `TWITTER_TOKEN` - Twitter数据API
+- `OPENNEWS_TOKEN` - 新闻搜索API
+- **获取地址**: https://6551.io/mcp
+
+**已配置定时推送**:
+- 脚本: `/root/clawd/scripts/crypto-ai-news-push.sh`
+- 时间: 每天9-23点每小时
+- 关键词: Polymarket、预测市场、空投、openclaw
+- 推送: Telegram私聊
+
+---
+
 ## 🔄 脚本版本记忆
 
 当前运行：**V29 Wyckoff Ultimate**

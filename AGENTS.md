@@ -16,6 +16,42 @@ Before doing anything else:
 5. Read `memory/YYYY-MM-DD.md` (today + yesterday) for recent context
 6. **If in MAIN SESSION** (direct chat with your human): Also read `MEMORY.md`
 
+## Knowledge System (知识库)
+
+**触发式加载，避免token浪费**
+
+### 知识库位置
+`/root/clawd/memory/knowledge/`
+
+### 触发机制
+| 任务关键词 | 加载目录 |
+|------------|----------|
+| 写/创作/文案/小红书/韩寒 | `writing-styles/` |
+| 教程/配置/安装 | `tutorials/` |
+| 产品/功能/优势 | `product-knowledge/` |
+| 赚钱/变现/副业 | `business/` |
+| API/技术/配置 | `technical/` |
+
+### 使用流程
+```
+1. 收到任务
+2. 识别关键词
+3. 如果匹配 → 读 KNOWLEDGE_INDEX.md
+4. 加载相关目录的 .md 文件
+5. 执行任务（参考知识）
+```
+
+### 知识贡献
+Boss发的优质内容自动分类存储：
+- 优质推文/文章 → `writing-styles/`
+- 教程 → `tutorials/`
+- 产品知识 → `product-knowledge/`
+- 变现场景 → `business/`
+- 技术配置 → `technical/`
+- 用户反馈 → `feedback/`
+
+**不要每次都加载所有知识！只在需要时加载。**
+
 ## Memory System (Ray Wang架构)
 
 **三层记忆**：

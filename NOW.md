@@ -14,9 +14,11 @@
 ## P0 Priorities
 | # | Item | Status | Owner |
 |---|------|--------|-------|
-| P0 | 获取x-mcp API Token | 等待boss | boss |
-| P1 | 回复GitHub Issue #24637 | 明天 | 贾维斯 |
-| P1 | 测试飞书多agent协同 | 明天 | 贾维斯 |
+| P0 | 赚到第一个$50 | 进行中 | 贾维斯 |
+| P1 | 网盘资源赚佣金（找资源+推广） | 待行动 | Boss |
+| P2 | 推广AI产品赚佣金（神图君教程） | 待学习 | Boss |
+| P3 | 流量卡/外卖券分享 | 待研究 | Boss |
+| P4 | 晚上发布小红书干货笔记 | 晚上 | 韩寒 |
 
 ## Agent Status
 | Agent | Focus |

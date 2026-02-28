@@ -20,6 +20,22 @@
     "tavily-search": {
       "version": "1.0.0",
       "installedAt": 1772134598197
+    },
+    "obsidian": {
+      "version": "1.0.0",
+      "installedAt": 1772179325787
+    },
+    "opennews-mcp": {
+      "version": "1.0.0",
+      "installedAt": 1772179768516
+    },
+    "opentwitter-mcp": {
+      "version": "1.0.0",
+      "installedAt": 1772179806293
+    },
+    "find-skills": {
+      "version": "0.1.0",
+      "installedAt": 1772180534095
     }
   }
 }
