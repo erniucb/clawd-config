@@ -47,6 +47,7 @@
 | `OpenClaw记忆管理-wangray.md` | 记忆系统配置 | 🔴 高 | 2026-02-27 |
 | `OpenClaw知识库-binghe.md` | 知识库搭建 | 🔴 高 | 2026-02-27 |
 | `Clash配置-xiangxiang.md` | Clash代理配置 | 🟡 中 | 2026-02-27 |
+| `浏览器自动化操作规范.md` | mcporter+playwright用法 | 🔴 高 | 2026-02-28 |
 
 ---
 

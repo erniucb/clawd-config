@@ -1,34 +1,34 @@
 {
-  "timestamp": "2026-02-28T01:00:12.333959",
-  "total_collected": 9,
-  "total_filtered": 9,
+  "timestamp": "2026-03-01T01:00:23.268911",
+  "total_collected": 18,
+  "total_filtered": 18,
   "topics": [
     {
       "rank": 1,
-      "original_title": "Great meeting with PM @narendramodi today to talk about the incredible energy around AI in India. India is our fastest growing market for codex globally, up 4x in weekly users",
-      "xiaohongshu_angle": "🔥 AI圈大事件：Great meeting with P...",
+      "original_title": "1. 算力需求攀升、智能体价值兑现2026年AI产业全面提速 - 新闻频道- 央视网",
+      "xiaohongshu_angle": "🔥 AI圈大事件：1. 算力需求攀升、智能体价值兑现202...",
       "explosion_reason": "✅ AI热点自带流量 | ✅ 可结合AI角度，差异化内容",
       "is_ai_related": true,
-      "heat": 27901,
-      "source": "twitter"
+      "heat": 0,
+      "source": "agent-reach"
     },
     {
       "rank": 2,
-      "original_title": "🚨WOW: @TRobinsonNewEra reveals why he released his factual documentary knowing it meant jail — and why @elonmusk platforming him on @X made every second of solitary confinement worth it. 💪",
-      "xiaohongshu_angle": "🔥 AI圈大事件：🚨WOW: @TRobinsonNewE...",
+      "original_title": "算力需求攀升、智能体价值兑现 2026年AI产业全面提速_新闻频道_央视网(cctv.com) -- [新闻] [新闻频道] [科技新闻] # 算力需求攀升、智能体价值兑现 2026年AI产业全面提速 来源： [央视财经] | 2026年03月01日 06:25:44 央视财经 | 2026年03月01日 06:25:44 ###### 原标题： 正在加载 从算力到大模型，再到智能体，AI企业全力",
+      "xiaohongshu_angle": "🔥 AI圈大事件：算力需求攀升、智能体价值兑现 2026年...",
       "explosion_reason": "✅ AI热点自带流量 | ✅ 可结合AI角度，差异化内容",
       "is_ai_related": true,
       "heat": 0,
-      "source": "twitter"
+      "source": "agent-reach"
     },
     {
       "rank": 3,
-      "original_title": "ChatGPT is going woke. I just wanted a number. Not a lecture.",
-      "xiaohongshu_angle": "🔥 AI圈大事件：ChatGPT is going wok...",
+      "original_title": "2. 算力需求攀升、智能体价值兑现2026年AI产业全面提速",
+      "xiaohongshu_angle": "🔥 AI圈大事件：2. 算力需求攀升、智能体价值兑现202...",
       "explosion_reason": "✅ AI热点自带流量 | ✅ 可结合AI角度，差异化内容",
       "is_ai_related": true,
       "heat": 0,
-      "source": "twitter"
+      "source": "agent-reach"
     }
   ]
 }

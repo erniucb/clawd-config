@@ -1,9 +1,13 @@
 {
-  "last_review": "2026-02-25T08:26:58.728849",
+  "last_review": "2026-02-28T08:00:16.137478",
   "promoted_items": [
     "### 1. OpenClaw 升级成功 ✅\n- 从旧版 clawdbot 升级到 OpenClaw",
     "### 2. V26 → V29 脚本升级 ✅\n- 爸爸已经把扫描脚本从 V26 升级到 V29 W",
-    "### 3. Agent Reach 安装 ✅\n- 安装命令: `pip install https"
+    "### 3. Agent Reach 安装 ✅\n- 安装命令: `pip install https",
+    "阶段0已完成，下周逐步升级到阶段1-4",
+    "### 1. memoryFlush 配置启用 ✅\n- **结果**：长对话不再失忆，自动保存重要信",
+    "### 5. 小龙虾1号定时任务配置 ✅\n- **结果**：每天9:00自动推送3个小红书选题\n- ",
+    "## Boss 反馈\n- Boss 问了 reset 后会不会失忆 → 解释了记忆持久化机制\n- B"
   ],
   "core_traits": []
 }

@@ -52,6 +52,50 @@ Boss发的优质内容自动分类存储：
 
 **不要每次都加载所有知识！只在需要时加载。**
 
+## Browser Automation (浏览器自动化)
+
+**使用 mcporter + playwright-mcp，不要再说"打不开有问题"！**
+
+### 常用命令
+
+```bash
+# 导航到页面
+mcporter call playwright.browser_navigate url="https://example.com"
+
+# 获取控制台消息
+mcporter call playwright.browser_console_messages level="info"
+
+# 截图
+mcporter call playwright.browser_take_screenshot type="png"
+
+# 点击元素
+mcporter call playwright.browser_click element="button" ref="e1"
+
+# 输入文字
+mcporter call playwright.browser_type element="input" ref="e2" text="搜索内容"
+
+# 执行JS代码
+mcporter call playwright.browser_run_code code="document.title"
+
+# 获取页面快照（结构化）
+mcporter call playwright.browser_snapshot
+
+# 关闭浏览器
+mcporter call playwright.browser_close
+```
+
+### 查看所有工具
+
+```bash
+mcporter list playwright --schema
+```
+
+### 注意事项
+
+- ✅ 可以直接用，不需要额外配置
+- ✅ 截图保存在 /tmp/playwright-mcp-output/
+- ⚠️ 首次使用可能需要安装浏览器：`mcporter call playwright.browser_install`
+
 ## Memory System (Ray Wang架构)
 
 **三层记忆**：

@@ -414,3 +414,37 @@ console.log('ct0:', ct0 ? ct0.split('=')[1] : 'NOT FOUND');
 - 6/9 渠道可用
 - 成功读取推文: https://x.com/AI_Jasonyu/status/2026455606970954087
 
+
+
+## 自动晋升记录
+
+<!-- 最后更新: 2026-02-28 08:00 -->
+
+### [重要性: 0.57] 2026-02-28
+阶段0已完成，下周逐步升级到阶段1-4
+
+### [重要性: 0.59] 2026-02-28
+### 1. memoryFlush 配置启用 ✅
+- **结果**：长对话不再失忆，自动保存重要信息
+- **相关文件**：`/root/.openclaw/openclaw.json`
+- **配置**：
+  - reserveTokensFloor: 20000
+  - softThresholdTokens: 4000
+- **检索标签**：#memoryFlush #配置优化 #防失忆
+
+### [重要性: 0.55] 2026-02-28
+### 5. 小龙虾1号定时任务配置 ✅
+- **结果**：每天9:00自动推送3个小红书选题
+- **相关文件**：
+  - Cron: `openclaw cron add` (ID: 71c31b9a...)
+  - 脚本: `/root/clawd/scripts/xiaolongxia-daily.sh`
+  - 项目: `/root/clawd/projects/xiaolongxia-ai/`
+- **工作流**：子代理并行扫描 → 筛选 → 推送 → boss确认 → 写作Agent生成文案
+- **检索标签**：#小龙虾1号 #定时任务 #子代理 #小红书
+
+### [重要性: 0.52] 2026-02-28
+## Boss 反馈
+- Boss 问了 reset 后会不会失忆 → 解释了记忆持久化机制
+- Boss 让我决定任务分配方式 → 选择子代理处理IO密集型任务
+- Boss 警告不要动 openclaw.json → 记录到 self-improving-agent
+

@@ -7,3 +7,30 @@
 2026-02-28 01:00:06 - 当前 BTC 价格: $65942.6
 2026-02-28 02:00:05 - 当前 BTC 价格: $65781.2
 2026-02-28 03:00:06 - 当前 BTC 价格: $65966.9
+2026-02-28 04:00:05 - 当前 BTC 价格: $65794.5
+2026-02-28 05:00:06 - 当前 BTC 价格: $65670.0
+2026-02-28 06:00:06 - 当前 BTC 价格: $65588.4
+2026-02-28 07:00:05 - 当前 BTC 价格: $63208.3
+2026-02-28 07:00:05 - ⚠️ 警报！价格低于 64730！
+Method Not Allowed2026-02-28 07:35:54 - 当前 BTC 价格: $63893.4
+2026-02-28 07:35:54 - ⚠️ 警报！价格低于 64730！
+Config warnings:\n- plugins.entries.feishu: plugin feishu: duplicate plugin id detected; later plugin may be overridden (/usr/lib/node_modules/openclaw/extensions/feishu/index.ts)
+│
+◇  Config warnings ────────────────────────────────────────────────────────╮
+│                                                                          │
+│  - plugins.entries.feishu: plugin feishu: duplicate plugin id detected;  │
+│    later plugin may be overridden                                        │
+│    (/usr/lib/node_modules/openclaw/extensions/feishu/index.ts)           │
+│                                                                          │
+├──────────────────────────────────────────────────────────────────────────╯
+Config warnings:\n- plugins.entries.feishu: plugin feishu: duplicate plugin id detected; later plugin may be overridden (/usr/lib/node_modules/openclaw/extensions/feishu/index.ts)
+[plugins] plugins.allow is empty; discovered non-bundled plugins may auto-load: feishu (/root/.openclaw/extensions/feishu/index.ts). Set plugins.allow to explicit trusted ids.
+Config warnings:\n- plugins.entries.feishu: plugin feishu: duplicate plugin id detected; later plugin may be overridden (/usr/lib/node_modules/openclaw/extensions/feishu/index.ts)
+[plugins] feishu_doc: Registered feishu_doc, feishu_app_scopes
+[plugins] feishu_wiki: Registered feishu_wiki tool
+[plugins] feishu_drive: Registered feishu_drive tool
+[plugins] feishu_bitable: Registered bitable tools
+Config warnings:\n- plugins.entries.feishu: plugin feishu: duplicate plugin id detected; later plugin may be overridden (/usr/lib/node_modules/openclaw/extensions/feishu/index.ts)
+[info]: [ 'client ready' ]
+✅ Sent via Feishu. Message ID: om_x100b551de05354b0c3ad5992a0cbe7c (chat ou_e47763504a4684b5004e3654e555249b)
+2026-02-28 07:36:10 - 消息发送完成
